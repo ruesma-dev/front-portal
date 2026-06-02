@@ -1,0 +1,409 @@
+/* public/assets/css/styles.css */
+/* =========================================================================
+   Portal Ruesma — identidad corporativa
+   Burdeos #9f2842 (marca) · Gris acero #7b868c (estructura) · Blanco
+   Estética: industrial / plano arquitectónico, sobria y moderna.
+   ========================================================================= */
+
+:root {
+  /* Marca */
+  --brand: #9f2842;
+  --brand-700: #87213799;
+  --brand-strong: #7a1e33;
+  --brand-soft: #f7eaee;
+  --steel: #7b868c;
+  --steel-300: #aab1b6;
+  --steel-100: #dfe2e4;
+
+  /* Neutros */
+  --ink: #1d2024;
+  --ink-soft: #4a4f55;
+  --paper: #ffffff;
+  --canvas: #f3f4f5;
+  --line: rgba(123, 134, 140, 0.22);
+  --line-strong: rgba(123, 134, 140, 0.4);
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(29, 32, 36, 0.05);
+  --shadow-md: 0 18px 40px -22px rgba(29, 32, 36, 0.35);
+  --shadow-brand: 0 22px 48px -24px rgba(159, 40, 66, 0.55);
+
+  /* Tipografía */
+  --font-display: 'Bricolage Grotesque', Georgia, serif;
+  --font-body: 'Archivo', system-ui, sans-serif;
+
+  /* Geometría */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --maxw: 1180px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* { box-sizing: border-box; }
+
+/* El UA stylesheet declara [hidden]{display:none} con la misma especificidad
+   que .gate{display:grid} y similares, y como las reglas de autor van DESPUES
+   en la cascada, ganan ellas y el atributo hidden deja de funcionar. Forzamos
+   que hidden tenga preferencia siempre. */
+[hidden] { display: none !important; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--canvas);
+  /* Trama de plano: cuadrícula muy sutil en gris acero. */
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    radial-gradient(140% 120% at 85% -10%, rgba(159, 40, 66, 0.06), transparent 55%);
+  background-size: 34px 34px, 34px 34px, 100% 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; }
+
+/* ---------- Botones ------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease);
+}
+.btn--primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--shadow-brand);
+}
+.btn--primary:hover { background: var(--brand-strong); transform: translateY(-2px); }
+.btn--primary:active { transform: translateY(0); }
+
+/* ---------- Puerta de acceso (login gate) -------------------------------- */
+.gate {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+.gate__card {
+  width: min(440px, 100%);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 3rem 2.4rem;
+  text-align: center;
+}
+.gate__logo { width: 190px; margin: 0 auto 1.8rem; }
+.gate__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+}
+.gate__text { color: var(--ink-soft); margin: 0 0 1.8rem; line-height: 1.55; }
+
+/* ---------- Barra superior ------------------------------------------------ */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem clamp(1rem, 4vw, 2.4rem);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(160%) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar__brand { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; }
+.topbar__logo { height: 30px; width: auto; }
+.topbar__sep { width: 1px; height: 24px; background: var(--line-strong); }
+.topbar__tag {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  color: var(--steel);
+  text-transform: uppercase;
+}
+
+/* Usuario */
+.user { display: flex; align-items: center; gap: 0.7rem; }
+.user__avatar {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+.user__meta { display: flex; flex-direction: column; line-height: 1.15; }
+.user__name { font-weight: 600; font-size: 0.9rem; text-transform: capitalize; }
+.user__mail { font-size: 0.76rem; color: var(--steel); }
+.user__logout {
+  margin-left: 0.4rem;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink-soft);
+  border-radius: 999px;
+  padding: 0.4rem 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.user__logout:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-soft); }
+
+/* ---------- Main / hero --------------------------------------------------- */
+.main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2.4rem) 3rem;
+}
+.hero { margin-bottom: clamp(2rem, 5vw, 3.4rem); max-width: 720px; }
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--steel);
+  background: var(--paper);
+}
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.3rem, 6vw, 3.9rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.1rem;
+  color: var(--ink);
+}
+.hero__title em { color: var(--brand); font-style: normal; }
+.hero__lead { font-size: 1.05rem; color: var(--ink-soft); margin: 0; }
+
+/* ---------- Categorías ---------------------------------------------------- */
+.cat { margin-bottom: clamp(2.2rem, 4vw, 3rem); }
+.cat__head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+.cat__title {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+  white-space: nowrap;
+}
+.cat__rule { flex: 1; height: 1px; background: var(--line-strong); }
+.cat__count {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--steel);
+  white-space: nowrap;
+}
+
+/* ---------- Grid de tarjetas --------------------------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.1rem;
+}
+
+/* ---------- Tarjeta ------------------------------------------------------- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  padding: 1.5rem 1.5rem 1.35rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  isolation: isolate;
+  /* entrada escalonada */
+  opacity: 0;
+  transform: translateY(14px);
+}
+.is-ready .card {
+  animation: rise 0.62s var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Barra de acento superior que aparece en hover (solo apps abiertas) */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+
+.card__index {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.3rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--steel-300);
+  letter-spacing: 0.05em;
+}
+
+.card__top { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; }
+.card__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  flex-shrink: 0;
+}
+.card__icon-svg { width: 24px; height: 24px; }
+
+.card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.card__badge svg { width: 13px; height: 13px; }
+.card__badge--open { color: var(--brand); background: var(--brand-soft); }
+.card__badge--locked { color: var(--steel); background: var(--steel-100); }
+.card__badge--soon { color: #8a6d12; background: #f6efd6; }
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: 1.22rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+.card__desc { font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft); margin: 0 0 1.1rem; }
+
+.card__footer { margin-top: auto; }
+.card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--brand);
+}
+.card__cta-arrow { width: 18px; height: 18px; transition: transform 0.25s var(--ease); }
+.card__hint { font-size: 0.82rem; color: var(--steel); }
+.card__hint code {
+  background: var(--steel-100);
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+  color: var(--ink-soft);
+}
+
+/* Velo (solo visible en estados velados) */
+.card__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(135deg, rgba(243, 244, 245, 0.5), rgba(243, 244, 245, 0.28)),
+    repeating-linear-gradient(45deg, rgba(123, 134, 140, 0.06) 0 8px, transparent 8px 16px);
+}
+
+/* --- Estado: ABIERTA (clicable) --- */
+.card--open { cursor: pointer; }
+.card--open:hover {
+  transform: translateY(-5px);
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+}
+.card--open:hover::before { transform: scaleX(1); }
+.card--open:hover .card__cta-arrow { transform: translateX(4px); }
+.card--open:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+
+/* --- Estados VELADOS: sin acceso / próximamente --- */
+.card--locked,
+.card--soon { cursor: not-allowed; }
+.card--locked .card__icon,
+.card--soon .card__icon { background: var(--steel-100); color: var(--steel); }
+.card--locked .card__title,
+.card--soon .card__title { color: var(--ink-soft); }
+.card--locked .card__veil,
+.card--soon .card__veil { opacity: 1; }
+.card--locked,
+.card--soon { filter: saturate(0.55); }
+.card--locked:hover,
+.card--soon:hover { filter: saturate(0.85); }
+
+/* ---------- Footer -------------------------------------------------------- */
+.footer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 1.6rem clamp(1rem, 4vw, 2.4rem) 2.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  color: var(--steel);
+  border-top: 1px solid var(--line);
+}
+.footer__dot { color: var(--steel-300); }
+
+/* ---------- Responsive ---------------------------------------------------- */
+@media (max-width: 560px) {
+  .user__meta { display: none; }
+  .topbar__tag { display: none; }
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Accesibilidad: respeta prefers-reduced-motion ----------------- */
+@media (prefers-reduced-motion: reduce) {
+  .card { opacity: 1; transform: none; animation: none; }
+  .is-ready .card { animation: none; }
+  .btn, .card, .card__cta-arrow { transition: none; }
+}

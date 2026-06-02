@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/staticwebapp.config.json",
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/12d28010-1dd7-4689-9d16-7af8fc5519b8/v2.0",
+          "clientIdSettingName": "AZURE_CLIENT_ID",
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
+        }
+      }
+    }
+  },
+  "routes": [
+    { "route": "/.auth/login/aad", "allowedRoles": ["anonymous", "authenticated"] },
+    { "route": "/.auth/login/github", "statusCode": 404 },
+    { "route": "/.auth/login/twitter", "statusCode": 404 },
+    { "route": "/login", "redirect": "/.auth/login/aad", "statusCode": 302 },
+    { "route": "/logout", "redirect": "/.auth/logout", "statusCode": 302 },
+    { "route": "/*", "allowedRoles": ["authenticated"] }
+  ],
+  "responseOverrides": {
+    "401": { "redirect": "/.auth/login/aad", "statusCode": 302 }
+  },
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/assets/*", "/*.{svg,css,js,ico,png,webp,woff,woff2}"]
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+    "Content-Security-Policy": "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+  },
+  "mimeTypes": {
+    ".svg": "image/svg+xml",
+    ".json": "application/json"
+  }
+}
