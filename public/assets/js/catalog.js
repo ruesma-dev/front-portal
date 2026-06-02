@@ -52,13 +52,13 @@ window.RUESMA_PORTAL.apps = [
     id: 'retribucion-flexible',
     title: 'Retribución Flexible',
     description:
-      'Plan de retribución flexible: solicitudes, productos contratados y reportes mensuales.',
+      'Vuelca los importes de retribución flexible (guardería, restaurante, transporte) en los Excel de Cegid Nóminas, casando por DNI.',
     category: 'RRHH',
     icon: 'gift',
-    url: '',
-    requiredGroupName: 'retribucion-usuarios',
-    requiredGroupId: ['REEMPLAZAR_OBJECT_ID_retribucion_usuarios'],
-    comingSoon: true,
+    url: 'https://nice-flower-0ecac4103.7.azurestaticapps.net',
+    requiredGroupName: 'rrhh-usuarios',
+    requiredGroupId: ['9401d180-ce18-4955-8b7f-72bba9282f41'],
+    comingSoon: false,
   },
 
   // ------------------------- Estudio ----------------------------------------
