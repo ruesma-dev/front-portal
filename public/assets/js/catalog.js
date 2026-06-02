@@ -45,7 +45,7 @@ window.RUESMA_PORTAL.apps = [
     url: 'https://lively-pond-007c90603.7.azurestaticapps.net',
     requiredGroupName: 'rrhh-usuarios',
     // ↓ az ad group show --group "rrhh-usuarios" --query id -o tsv
-    requiredGroupId: ['REEMPLAZAR_OBJECT_ID_rrhh_usuarios'],
+    requiredGroupId: ['9401d180-ce18-4955-8b7f-72bba9282f41'],
     comingSoon: false,
   },
   {
