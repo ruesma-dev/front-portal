@@ -97,10 +97,10 @@ window.RUESMA_PORTAL.apps = [
       'Procesado de albaranes por email con extracción IA, enriquecimiento ERP y valoración por contrato.',
     category: 'Obra',
     icon: 'delivery',
-    url: '',
-    requiredGroupName: 'albaranes-usuarios',
-    requiredGroupId: ['REEMPLAZAR_OBJECT_ID_albaranes_usuarios'],
-    comingSoon: true,
+    url: 'https://ca-sv4-front.grayrock-806c3ddd.spaincentral.azurecontainerapps.io/documents',
+    requiredGroupName: 'albaranes-portal-users',
+    requiredGroupId: ['c3b80ef7-5673-4458-91d3-ec8f5cdd51dd'],
+    comingSoon: false,
   },
   {
     id: 'facturas',
@@ -112,6 +112,18 @@ window.RUESMA_PORTAL.apps = [
     url: '',
     requiredGroupName: 'facturas-usuarios',
     requiredGroupId: ['REEMPLAZAR_OBJECT_ID_facturas_usuarios'],
+    comingSoon: true,
+  },
+  {
+    id: 'partes-trabajo',
+    title: 'Partes de Trabajo',
+    description:
+      'Gestión de los partes de trabajo diarios: extracción IA, validación y volcado a Sigrid.',
+    category: 'Obra',
+    icon: 'contract',
+    url: '',
+    requiredGroupName: 'partes-usuarios',
+    requiredGroupId: ['REEMPLAZAR_OBJECT_ID_partes_usuarios'],
     comingSoon: true,
   },
 
@@ -137,10 +149,10 @@ window.RUESMA_PORTAL.apps = [
       'Cuadro de mando de seguimiento mensual de obras (Producción, CD, CI y CP) Real vs Plan en Power BI.',
     category: 'Direccion',
     icon: 'chart',
-    url: '',
-    requiredGroupName: 'seguimiento-usuarios',
-    requiredGroupId: ['REEMPLAZAR_OBJECT_ID_seguimiento_usuarios'],
-    comingSoon: true,
+    url: 'https://app.powerbi.com/groups/98e6a7e6-f000-478f-b131-f3fca6ac1763/reports/d8b11290-8fd0-4e4e-acdc-b784bebb8465/2555cf09f82af9d21500',
+    requiredGroupName: 'direccion',
+    requiredGroupId: ['c576cdbe-d0c5-42ac-9d10-74ca2a9306ba'],
+    comingSoon: false,
   },
 ];
 
