@@ -89,6 +89,20 @@ window.RUESMA_PORTAL.apps = [
     comingSoon: true,
   },
 
+  {
+    id: 'comparativos',
+    title: 'Seguimiento de Comparativos',
+    description:
+      'Cuadro de mando en Power BI para el seguimiento de comparativos de ofertas de proveedores.',
+    category: 'Compras',
+    icon: 'compare',
+    url: 'https://app.fabric.microsoft.com/groups/96e178f0-db35-4586-8d54-59943d946283/reports/33fb592c-5e2d-4b78-9a51-66caf4ca3dae/23c5e39a53617cfa8255?experience=power-bi',
+    requiredGroupName: 'compras-usuarios',
+    // ↓ az ad group show --group "compras-usuarios" --query id -o tsv
+    requiredGroupId: ['a648f702-2b86-4e9f-8a29-51e08394344f'],
+    comingSoon: false,
+  },
+
   // ------------------------- Obra -------------------------------------------
   {
     id: 'albaranes',
@@ -103,6 +117,18 @@ window.RUESMA_PORTAL.apps = [
     comingSoon: false,
   },
   {
+    id: 'partes-trabajo',
+    title: 'Partes de Trabajo',
+    description:
+      'Gestión de los partes de trabajo diarios: extracción IA, validación y volcado a Sigrid.',
+    category: 'Obra',
+    icon: 'contract',
+    url: 'https://ca-sv4-front.yellowplant-2add9c3e.spaincentral.azurecontainerapps.io/obras',
+    requiredGroupName: 'partes-portal-users',
+    requiredGroupId: ['6779536e-54f1-4c2e-94cc-c40a3c87a3d9'],   // o  []  para abrir a cualquier autenticado
+    comingSoon: false,
+  },
+  {
     id: 'facturas',
     title: 'Facturas',
     description:
@@ -114,19 +140,6 @@ window.RUESMA_PORTAL.apps = [
     requiredGroupId: ['REEMPLAZAR_OBJECT_ID_facturas_usuarios'],
     comingSoon: true,
   },
-  {
-    id: 'partes-trabajo',
-    title: 'Partes de Trabajo',
-    description:
-      'Gestión de los partes de trabajo diarios: extracción IA, validación y volcado a Sigrid.',
-    category: 'Obra',
-    icon: 'contract',
-    url: '',
-    requiredGroupName: 'partes-usuarios',
-    requiredGroupId: ['REEMPLAZAR_OBJECT_ID_partes_usuarios'],
-    comingSoon: true,
-  },
-
   // ------------------------- Calidad y Medio Ambiente -----------------------
   {
     id: 'residuos',

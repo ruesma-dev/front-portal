@@ -53,6 +53,13 @@
       '<path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>' +
       '<line x1="10" y1="11" x2="10" y2="17"/>' +
       '<line x1="14" y1="11" x2="14" y2="17"/>',
+    // Barras comparadas (Seguimiento de Comparativos)
+    compare:
+      '<path d="M3 20h18"/>' +
+      '<rect x="5" y="9" width="4" height="8" rx="1"/>' +
+      '<rect x="12" y="5" width="4" height="12" rx="1"/>' +
+      '<path d="M19.5 9v8"/>' +
+      '<path d="M18 10.5 19.5 9l1.5 1.5"/>',
     // Auxiliares
     lock:
       '<rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
