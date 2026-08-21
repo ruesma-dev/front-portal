@@ -60,6 +60,12 @@
       '<rect x="12" y="5" width="4" height="12" rx="1"/>' +
       '<path d="M19.5 9v8"/>' +
       '<path d="M18 10.5 19.5 9l1.5 1.5"/>',
+    // Edificio con columnas (Remesas Bancarias)
+    bank:
+      '<path d="M3 10 12 4l9 6"/>' +
+      '<path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7"/>' +
+      '<path d="M3 20h18"/>' +
+      '<path d="M4 17h16"/>',
     // Auxiliares
     lock:
       '<rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
