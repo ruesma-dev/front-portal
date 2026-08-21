@@ -29,6 +29,7 @@ window.RUESMA_PORTAL.categoryOrder = [
   'Estudio',
   'Compras',
   'Obra',
+  'Finanzas',
   'Calidad',
   'Direccion',
 ];
@@ -99,7 +100,7 @@ window.RUESMA_PORTAL.apps = [
     url: 'https://app.fabric.microsoft.com/groups/96e178f0-db35-4586-8d54-59943d946283/reports/33fb592c-5e2d-4b78-9a51-66caf4ca3dae/23c5e39a53617cfa8255?experience=power-bi',
     requiredGroupName: 'compras-usuarios',
     // ↓ az ad group show --group "compras-usuarios" --query id -o tsv
-    requiredGroupId: ['a648f702-2b86-4e9f-8a29-51e08394344f'],
+    requiredGroupId: ['REEMPLAZAR_OBJECT_ID_compras_usuarios'],
     comingSoon: false,
   },
 
@@ -129,6 +130,18 @@ window.RUESMA_PORTAL.apps = [
     comingSoon: false,
   },
   {
+    id: 'dedicacion',
+    title: 'Dedicación',
+    description:
+      'Cuadrante mensual de dedicación por obra: reparto del 100 % de cada trabajador y registro en los partes de Sigrid.',
+    category: 'Obra',
+    icon: 'chart',
+    url: 'https://ca-dedicacion-front.ashypebble-3c89c6d6.spaincentral.azurecontainerapps.io',
+    requiredGroupName: 'dedicacion-portal-users',
+    requiredGroupId: ['0967b79c-ff56-4b2e-a9a1-6217a1d5aa5c'],
+    comingSoon: false,
+  },
+  {
     id: 'facturas',
     title: 'Facturas',
     description:
@@ -140,6 +153,21 @@ window.RUESMA_PORTAL.apps = [
     requiredGroupId: ['REEMPLAZAR_OBJECT_ID_facturas_usuarios'],
     comingSoon: true,
   },
+  // ------------------------- Contabilidad y Finanzas ------------------------
+  {
+    id: 'remesas-bancarias',
+    title: 'Remesas Bancarias',
+    description:
+      'Generación y gestión de remesas bancarias (adeudos y transferencias SEPA) para envío a la banca.',
+    category: 'Finanzas',
+    icon: 'bank',
+    url: 'https://ca-finanzas-remesas-front.yellowplant-2add9c3e.spaincentral.azurecontainerapps.io',
+    requiredGroupName: 'Contabilidad y Finanzas',
+    // ↓ az ad group show --group "contabilidad-usuarios" --query id -o tsv
+    requiredGroupId: ['b5dbff0a-8397-473a-b24d-3e8f7dff76ad'],
+    comingSoon: false,
+  },
+
   // ------------------------- Calidad y Medio Ambiente -----------------------
   {
     id: 'residuos',
@@ -162,7 +190,7 @@ window.RUESMA_PORTAL.apps = [
       'Cuadro de mando de seguimiento mensual de obras (Producción, CD, CI y CP) Real vs Plan en Power BI.',
     category: 'Direccion',
     icon: 'chart',
-    url: 'https://app.powerbi.com/groups/98e6a7e6-f000-478f-b131-f3fca6ac1763/reports/d8b11290-8fd0-4e4e-acdc-b784bebb8465/2555cf09f82af9d21500',
+    url: 'https://app.powerbi.com/groups/98e6a7e6-f000-478f-b131-f3fca6ac1763/reports/5ed83a47-cb8e-4964-8f1d-db289a8109cb/2555cf09f82af9d21500?experience=power-bi',
     requiredGroupName: 'direccion',
     requiredGroupId: ['c576cdbe-d0c5-42ac-9d10-74ca2a9306ba'],
     comingSoon: false,
@@ -175,6 +203,7 @@ window.RUESMA_PORTAL.categoryLabels = {
   Estudio: 'Estudio',
   Compras: 'Compras',
   Obra: 'Obra',
+  Finanzas: 'Contabilidad y Finanzas',
   Calidad: 'Calidad y Medio Ambiente',
   Direccion: 'Dirección',
 };
