@@ -100,7 +100,7 @@ window.RUESMA_PORTAL.apps = [
     url: 'https://app.fabric.microsoft.com/groups/96e178f0-db35-4586-8d54-59943d946283/reports/33fb592c-5e2d-4b78-9a51-66caf4ca3dae/23c5e39a53617cfa8255?experience=power-bi',
     requiredGroupName: 'compras-usuarios',
     // ↓ az ad group show --group "compras-usuarios" --query id -o tsv
-    requiredGroupId: ['REEMPLAZAR_OBJECT_ID_compras_usuarios'],
+    requiredGroupId: ['a648f702-2b86-4e9f-8a29-51e08394344f'],
     comingSoon: false,
   },
 
